@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector('#feedBack1').innerHTML = 'Correct!';
+                })
+                let incorrect = document.querySelectorAll('.incorrect');
+                for( let i = 0; i < incorrect.length; i++){
+                    incorrect[i].addEventListener('click', function() {
+                        incorrect[i].style.backgroundColor = 'red';
+                        document.querySelector('#feedBack1').innerHTML = 'Incorrect!';
+            });
+        }
+
+                document.querySelector('#checkAnswer').addEventListener('click', function() {
+                  let input = document.querySelector('input');
+                  if(input.value === '1996'){
+                    input.style.backgroundColor = 'green';
+                    document.querySelector('#feedBack2').innerHTML = 'Correct!';
+                  } else{
+                    input.style.backgroundColor = 'red';
+                    document.querySelector('#feedBack2').innerHTML = 'Incorrect!';
+                  }
+                  })
+          })
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Who invented JavaSkript?</h3>
+
+                <button class="correct">Brendan Eich</button>
+                <button class="incorrect">John W. Thompson</button>
+                <button class="incorrect">Bjarne Stroustrup</button>
+                <button class="incorrect">Yukihiro Matsumoto</button>
+                <button class="incorrect">Jan Huck</button>
+
+                <p id="feedBack1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>what year was js invented?</h3>
+
+                <input type="text"></input>
+                <button id="checkAnswer">Sumbit the answer</button>
+
+                <p id="feedBack2"></p>
+            </div>
+        </div>
+    </body>
+</html>
